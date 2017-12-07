@@ -27,8 +27,8 @@ WORKDIR app
 # Uncomment to skip the chromium download when installing puppeteer.
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-echo '{  "main": "server.js",  "license": "Apache-2.0",  "engines": {    "node": ">=8"  },  "scripts": {    "start": "node --max_old_space_size=3072 yourfile.js"  },  "dependencies": {    "puppeteer": "^0.13.0"  }}' > package.json
-RUN npm install
+RUN echo '{  "main": "server.js",  "license": "Apache-2.0",  "engines": {    "node": ">=8"  },  "scripts": {    "start": "node --max_old_space_size=3072 yourfile.js"  },  "dependencies": {    "puppeteer": "^0.13.0"  }}' > package.json \
+    && npm install
 
 # Add pptr user.
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
