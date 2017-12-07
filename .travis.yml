@@ -13,5 +13,5 @@ script:
   - sleep 3
   - docker-compose ps
   - docker-compose logs puppeteer
-  - docker-compose exec puppeteer node yourfile.js  
+  - docker-compose exec puppeteer npm start 
   - ls screenshot.png
