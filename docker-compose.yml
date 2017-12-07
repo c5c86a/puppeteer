@@ -5,7 +5,7 @@ services:
       context: .
       args:
         username: $USER
-        userid: $TRAVIS_UID
+        userid: $UID
     user: $USER
     cap_add:
       - SYS_ADMIN
