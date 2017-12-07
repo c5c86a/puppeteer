@@ -46,4 +46,4 @@ RUN cd /tmp \
     && cd $APP_HOME \
     && ln -s /tmp/node_modules
 
-CMD ["tail", "-F", "container.log"]
+CMD ["bash", "entrypoint.sh"]
