@@ -1,7 +1,6 @@
 version: '2'
 services:
   puppeteer:
-    container_name: puppeteer
     build: 
       context: .
     cap_add:
