@@ -5,6 +5,7 @@ MAINTAINER Nicos Maris <nicosmaris@>
 ARG COMMIT
 ENV COMMIT ${COMMIT:-master}
 ENV DEBIAN_FRONTEND noninteractive
+ENV APP_HOME /app
 
 RUN apt-get update -y && apt-get upgrade -y
 
@@ -26,16 +27,16 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-WORKDIR app
+WORKDIR $APP_HOME
 
-# Add pptr user.
-RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /app
+ARG username
+ARG userid
+RUN useradd -G audio,video --no-create-home --user-group --shell /bin/bash --home-dir $APP_HOME --uid $userid $username \
+    && chown -R $username: $APP_HOME
+
 
 # Run user as non privileged.
-USER pptruser
+USER $username
 
 # Uncomment to skip the chromium download when installing puppeteer.
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -43,7 +44,7 @@ USER pptruser
 COPY package.json /tmp
 RUN cd /tmp \
     && npm install  \
-    && cd - \
+    && cd $APP_HOME \
     && ln -s /tmp/node_modules
 
 CMD ["tail", "-F", "container.log"]

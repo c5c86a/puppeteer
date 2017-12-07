@@ -3,6 +3,10 @@ services:
   puppeteer:
     build: 
       context: .
+      args:
+        username: $USER
+        userid: $UID
+    user: $USER
     cap_add:
       - SYS_ADMIN
     shm_size: 512M
