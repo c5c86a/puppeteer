@@ -4,7 +4,7 @@ env:
 
 before_script:
   - wget -O docker.deb https://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_${DOCKER_VERSION}~ce-0~ubuntu-trusty_amd64.deb 
-  - sudo dpkg -i docker.deb    
+  - sudo dpkg -i --force-confnew docker.deb    
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
