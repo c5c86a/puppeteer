@@ -1,9 +1,13 @@
 version: '2'
 services:
   puppeteer:
-    container_name: puppeteer
     build: 
       context: .
+      args:
+        username: $USER
+        userid: $USERID
+        givencommit: $TRAVIS_COMMIT
+    user: $USER
     cap_add:
       - SYS_ADMIN
     shm_size: 512M
