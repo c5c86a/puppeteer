@@ -2,11 +2,11 @@ FROM ubuntu:16.04
 
 MAINTAINER Nicos Maris <nicosmaris@>
 
-ARG COMMIT
 ARG username
 ARG userid
+ARG givencommit
 
-ENV COMMIT ${TRAVIS_COMMIT:built-manually}
+ENV COMMIT $GIVENCOMMIT
 ENV DEBIAN_FRONTEND noninteractive
 ENV APP_HOME /app
 
