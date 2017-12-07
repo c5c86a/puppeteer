@@ -13,6 +13,7 @@ script:
   - sleep 3
   - docker-compose ps
   - docker-compose logs puppeteer
+  - docker-compose exec puppeteer ln -s /tmp/node_modules .
   - docker-compose exec puppeteer ls -la
   - docker-compose exec puppeteer npm start 
   - ls screenshot.png
