@@ -31,7 +31,10 @@ WORKDIR app
 # server.js. Cache bust so we always get the latest version of puppeteer when
 # building the image.
 ARG CACHEBUST=1
-RUN yarn add puppeteer
+RUN cd /tmp \
+    && yarn add puppeteer \
+    && cd - \
+    && ln -s /tmp/node_modules
 
 # Add pptr user.
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
