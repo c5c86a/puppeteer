@@ -32,7 +32,7 @@ WORKDIR app
 # building the image.
 ARG CACHEBUST=1
 RUN cd /tmp \
-    && yarn add puppeteer \
+    && npm install puppeteer \
     && cd - \
     && ln -s /tmp/node_modules
 
