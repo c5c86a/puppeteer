@@ -3,7 +3,10 @@ FROM ubuntu:16.04
 MAINTAINER Nicos Maris <nicosmaris@>
 
 ARG COMMIT
-ENV COMMIT ${COMMIT:-master}
+ARG username
+ARG userid=$UID
+
+ENV COMMIT ${TRAVIS_COMMIT:built-manually}
 ENV DEBIAN_FRONTEND noninteractive
 ENV APP_HOME /app
 
@@ -29,8 +32,6 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
 
 WORKDIR $APP_HOME
 
-ARG username
-ARG userid
 RUN useradd --no-create-home --user-group --shell /bin/bash --home-dir $APP_HOME --uid $userid $username
 RUN chown -R $username: $APP_HOME
 
