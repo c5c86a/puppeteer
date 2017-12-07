@@ -9,7 +9,7 @@ before_script:
   - docker-compose --version
 
 script:
-  - export UID=$TRAVIS_UID
+  - export USERID=$TRAVIS_UID
   - docker-compose up -d
   - sleep 3
   - docker-compose ps
