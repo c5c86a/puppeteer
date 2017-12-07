@@ -42,4 +42,4 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
 # Run user as non privileged.
 USER pptruser
 
-CMD ["tail", "F", "container.log"]
+CMD ["tail", "-F", "container.log"]
