@@ -1,5 +1,7 @@
 env:
-  - DOCKER_COMPOSE_VERSION=1.9.0
+  matrix:
+    - DOCKER_COMPOSE_VERSION:
+      - 1.9.0
 
 before_script:
   - sudo rm /usr/local/bin/docker-compose
