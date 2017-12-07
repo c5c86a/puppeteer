@@ -4,7 +4,7 @@ MAINTAINER Nicos Maris <nicosmaris@>
 
 ARG COMMIT
 ARG username
-ARG userid=$UID
+ARG userid
 
 ENV COMMIT ${TRAVIS_COMMIT:built-manually}
 ENV DEBIAN_FRONTEND noninteractive

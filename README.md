@@ -5,7 +5,7 @@ The goals here are to:
 
 Usage:
 
-export USERID=UID
+export USERID=$UID
 docker-compose up -d
 docker-compose exec puppeteer npm start 
 
