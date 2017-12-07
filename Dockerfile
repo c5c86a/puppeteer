@@ -27,7 +27,6 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && rm -rf /src/*.deb
 
 WORKDIR app
-COPY . ./
 
 # Add pptr user.
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
@@ -41,6 +40,10 @@ USER pptruser
 # Uncomment to skip the chromium download when installing puppeteer.
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN npm install 
+COPY package.json ./
+RUN cd /tmp /
+    && npm install  /
+    && cd -
+    && ln -s /tmp/node_modules
 
 CMD ["tail", "-F", "container.log"]
