@@ -7,7 +7,7 @@ services:
       - SYS_ADMIN
     shm_size: 512M
     # required until: https://bugs.chromium.org/p/chromium/issues/detail?id=736452#c47
-    cpuset: 0-3
+    cpuset: 0-1
     volumes:
       - .:/app
     tty: true
