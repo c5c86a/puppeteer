@@ -41,6 +41,7 @@ USER pptruser
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 RUN echo '{  "main": "server.js",  "license": "Apache-2.0",  "engines": {    "node": ">=8"  },  "scripts": {    "start": "node --max_old_space_size=3072 yourfile.js"  },  "dependencies": {    "puppeteer": "^0.13.0"  }}' > package.json \
-    && npm install
+    && npm install \
+    && npm list | grep puppeteer
 
 CMD ["tail", "-F", "container.log"]
