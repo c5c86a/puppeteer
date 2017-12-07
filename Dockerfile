@@ -40,9 +40,8 @@ USER pptruser
 # Uncomment to skip the chromium download when installing puppeteer.
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-COPY package.json ./
-RUN cp package.json /tmp /
-    && cd /tmp \
+COPY package.json /tmp
+RUN cd /tmp \
     && npm install  \
     && cd - \
     && ln -s /tmp/node_modules
