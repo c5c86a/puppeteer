@@ -41,7 +41,8 @@ USER pptruser
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 COPY package.json ./
-RUN cd /tmp \
+RUN cp package.json /tmp /
+    && cd /tmp \
     && npm install  \
     && cd - \
     && ln -s /tmp/node_modules
