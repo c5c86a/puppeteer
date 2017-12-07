@@ -1,0 +1,14 @@
+version: '2'
+services:
+  puppeteer:
+    build: 
+      context: .
+    cap_add:
+      - SYS_ADMIN
+    shm_size: 512M
+    # required until: https://bugs.chromium.org/p/chromium/issues/detail?id=736452#c47
+    cpuset: 0-3
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
