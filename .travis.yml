@@ -1,6 +1,7 @@
 env:
   matrix:
-    - DOCKER_VERSION='17.05.0' DOCKER_COMPOSE_VERSION='1.9.0'
+    - DOCKER_VERSION='17.03.0' DOCKER_COMPOSE_VERSION='1.9.0'
+    - DOCKER_VERSION='17.05.0' DOCKER_COMPOSE_VERSION='1.17.1'
 
 before_script:
   - sudo apt-get purge docker-ce      
@@ -10,7 +11,6 @@ before_script:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker-compose --version
 
 script:
   - export USERID=$TRAVIS_UID
@@ -19,4 +19,5 @@ script:
   - docker-compose ps
   - docker-compose logs puppeteer
   - docker-compose exec puppeteer npm start 
+  - docker-compose exec puppeteer npm list | grep puppeteer  
   - ls screenshot.png
