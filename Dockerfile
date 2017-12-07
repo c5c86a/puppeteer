@@ -31,9 +31,8 @@ WORKDIR $APP_HOME
 
 ARG username
 ARG userid
-RUN useradd -G audio,video --no-create-home --user-group --shell /bin/bash --home-dir $APP_HOME --uid $userid $username \
-    && chown -R $username: $APP_HOME
-
+RUN useradd --no-create-home --user-group --shell /bin/bash --home-dir $APP_HOME --uid $userid $username
+RUN chown -R $username: $APP_HOME
 
 # Run user as non privileged.
 USER $username
