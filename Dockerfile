@@ -24,9 +24,6 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
 
 WORKDIR app
 
-# Install deps for server.
-RUN yarn
-
 # Uncomment to skip the chromium download when installing puppeteer.
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
