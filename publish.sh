@@ -3,10 +3,12 @@
 set -x
 
 sed -i "s/baseimage/$BASE_IMAGE/g" Dockerfile
+sed -i "s/nodejsversion/$NODEJS_VERSION/g" Dockerfile
 
 if [[ $TRAVIS_BRANCH == *"develop"* ]]; then
   docker-compose up -d
   sleep 3
+  docker images
   docker-compose ps
   docker-compose logs puppeteer
   docker-compose exec puppeteer npm list | grep puppeteer  
