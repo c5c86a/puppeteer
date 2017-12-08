@@ -12,7 +12,7 @@ ENV APP_HOME /app
 
 RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get install -y curl && \
+RUN apt-get install -y curl gnupg && \
 curl -sL https://deb.nodesource.com/setup_8.x | bash -  && \
 apt-get install -y nodejs  && \
 nodejs -v  && \
