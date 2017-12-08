@@ -14,12 +14,5 @@ before_script:
 
 script:
   - export TAG=nicosmaris/puppeteer:0.1.$TRAVIS_COMMIT
-  - docker-compose up -d
-  - sleep 3
-  - docker-compose ps
-  - docker-compose logs puppeteer
-  - docker-compose exec puppeteer npm list | grep puppeteer  
-  - docker-compose exec puppeteer npm start 
-  - ls screenshot.png
   - bash publish.sh
 

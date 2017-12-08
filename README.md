@@ -37,4 +37,10 @@ docker-compose exec puppeteer npm start
 
 Feel free to open issues at github with details, what you expected and what happened.
 
-To build the image, edit the file Dockerfile. To test the image, edit the file .travis.yml and make sure that docker hub has finished. You should avoid modifying both files at the same commit.
+The branching strategy is that:
+
+1. branches that contain the word 'master' test how the image is used and are long lived
+2. branches that contain the word develop test how the image is built and are short lived
+3. the branch develop builds the image on travis and pushes it to hub.docker.com
+4. there should be no other branch naming
+
