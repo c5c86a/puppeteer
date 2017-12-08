@@ -1,7 +1,7 @@
 version: '2'
 services:
   puppeteer:
-    image: 0.1.64c552ff6df9c2e27f9613df1c4cf4c58c97e444
+    image: nicosmaris/puppeteer:0.1.64c552ff6df9c2e27f9613df1c4cf4c58c97e444
     user: $USER
     cap_add:
       - SYS_ADMIN
