@@ -10,9 +10,6 @@ ENV COMMIT $GIVENCOMMIT
 ENV DEBIAN_FRONTEND noninteractive
 ENV APP_HOME /app
 
-RUN echo $UID
-RUN exit 1
-
 RUN apt-get update -y && apt-get upgrade -y
 
 RUN apt-get install -y curl && \

@@ -22,6 +22,6 @@ script:
   - docker-compose logs puppeteer
   - docker-compose exec puppeteer npm list | grep puppeteer  
   - ls screenshot.png
-  - docker login -u nicosmaris -p "$(DOCKER_PASS)"
+  - docker login -u nicosmaris -p "$DOCKER_PASS"
   - docker push $TAG
 
