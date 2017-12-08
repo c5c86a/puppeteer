@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ $TRAVIS_BRANCH == 'master' && $DOCKER_VERSION == '17.03.0' && $DOCKER_COMPOSE_VERSION == '1.9.0' ]]
+if [[ $TRAVIS_BRANCH == 'master' && $DOCKER_VERSION == '17.03.0' && $DOCKER_COMPOSE_VERSION == '1.9.0' ]]; then
   docker login -u nicosmaris -p "$DOCKER_PASS"
   docker push $TAG
 
