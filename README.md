@@ -5,8 +5,12 @@ The goals here are to:
 
 Usage:
 
+Copy the file `examples/docker-compose.yml` to your current woprking directory and run:
+
+```
 docker-compose up -d
 docker-compose exec puppeteer npm start 
+```
 
 Contributions:
 

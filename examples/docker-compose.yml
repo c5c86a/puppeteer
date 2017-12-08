@@ -1,0 +1,15 @@
+version: '2'
+services:
+  puppeteer:
+    image: nicosmaris/puppeteer
+    user: $USER
+    cap_add:
+      - SYS_ADMIN
+    shm_size: 512M
+    cpuset: 0-1
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+
+

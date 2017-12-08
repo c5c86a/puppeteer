@@ -2,9 +2,9 @@ FROM ubuntu:16.04
 
 MAINTAINER Nicos Maris <nicosmaris@>
 
-ARG username
-ARG userid
-ARG givencommit
+ARG username=$USER
+ARG userid=$UID
+ARG givencommit='built-manually'
 
 ENV COMMIT $GIVENCOMMIT
 ENV DEBIAN_FRONTEND noninteractive
