@@ -2,7 +2,7 @@
 
 set -x
 
-sed -i 's/baseimage/$BASE_IMAGE/g' Dockerfile
+sed -i "s/baseimage/$BASE_IMAGE/g" Dockerfile
 
 if [[ $TRAVIS_BRANCH == *"develop"* ]]; then
   docker-compose up -d
