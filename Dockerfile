@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM baseimage
 
 MAINTAINER Nicos Maris <nicosmaris@>
 
@@ -12,8 +12,8 @@ ENV APP_HOME /app
 
 RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get install -y curl && \
-curl -sL https://deb.nodesource.com/setup_8.x | bash -  && \
+RUN apt-get install -y curl gnupg && \
+curl -sL https://deb.nodesource.com/setup_nodejsversion | bash -  && \
 apt-get install -y nodejs  && \
 nodejs -v  && \
 npm -v
