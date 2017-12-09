@@ -25,7 +25,8 @@ fi
 
 if [[ $TRAVIS_BRANCH == *"master"* ]]; then
   docker-compose down
-  docker-compose -f docker-compose.puppeteer.yml up -d
+  cd examples/puppeteer
+  docker-compose up -d
   sleep 3
   docker-compose exec puppeteer npm start 
   ls screenshot.png
