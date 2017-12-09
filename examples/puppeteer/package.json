@@ -1,0 +1,13 @@
+{
+  "main": "test runner",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node --max_old_space_size=3072 yourfile.js"
+  },
+  "dependencies": {
+    "puppeteer": "^0.13.0"
+  }
+}
