@@ -33,9 +33,9 @@ ls screenshot.png
 
 if [ ! -z "$TRAVIS_TAG" ]; then
   if [[ $BASE_IMAGE == 'ubuntu:16.04' && $DOCKER_VERSION == '17.03.0' && $DOCKER_COMPOSE_VERSION == '1.9.0' ]]; then
-    docker tag puppeteer nicos/puppeteer:$TRAVIS_TAG
+    docker tag puppeteer nicosmaris/puppeteer:$TRAVIS_TAG
     docker login -u nicosmaris -p "$DOCKER_PASS"
-    docker push nicos/puppeteer:$TRAVIS_TAG
+    docker push nicosmaris/puppeteer:$TRAVIS_TAG
   fi
 fi
 
