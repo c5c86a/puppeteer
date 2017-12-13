@@ -16,6 +16,7 @@ sleep 3
 docker-compose ps
 docker-compose logs puppeteer
 docker-compose exec puppeteer npm list | grep puppeteer  
+rm -rf screenshot.png
 docker-compose exec puppeteer npm start 
 ls screenshot.png
 
@@ -28,6 +29,7 @@ docker images
 docker-compose ps
 docker-compose logs puppeteer
 docker-compose exec puppeteer npm list | grep puppeteer  
+rm -rf screenshot.png
 docker-compose exec puppeteer npm start 
 ls screenshot.png
 
