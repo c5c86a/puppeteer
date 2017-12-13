@@ -28,6 +28,9 @@ if [[ $TRAVIS_BRANCH == *"master"* ]]; then
   cd examples/puppeteer
   docker-compose up -d
   sleep 3
+  docker-compose ps
+  docker-compose logs puppeteer
+  docker-compose exec puppeteer npm list | grep puppeteer  
   docker-compose exec puppeteer npm start 
   ls screenshot.png
 fi
