@@ -13,7 +13,7 @@ Nodejs 8 does not support debian 7 and puppeteer 0.13 does not support nodejs 4.
 
 a. ubuntu
 b. nodejs (or docker and docker-compose)
-2. Download this repository and run the following:
+2. Download this repository, go to a folder under `examples` and run the following:
 
 ```
 docker-compose -f docker-compose.puppeteer.yml up -d
