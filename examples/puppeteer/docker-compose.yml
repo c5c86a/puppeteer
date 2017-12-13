@@ -5,7 +5,7 @@ services:
     user: $USER
     cap_add:
       - SYS_ADMIN
-    shm_size: 512M
+    #shm_size: 512M
     cpuset: 0-1
     volumes:
       - .:/app
