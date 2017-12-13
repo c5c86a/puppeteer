@@ -1,7 +1,7 @@
 version: '2'
 services:
   puppeteer:
-    image: tag
+    image: puppeteer
     user: $USER
     cap_add:
       - SYS_ADMIN

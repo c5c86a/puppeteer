@@ -7,7 +7,7 @@ services:
         username: $USER
         userid: $TRAVIS_UID
         givencommit: $TRAVIS_COMMIT
-    image: $TAG
+    image: puppeteer
     user: $USER
     cap_add:
       - SYS_ADMIN

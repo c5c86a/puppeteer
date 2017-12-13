@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
+# 
+# To trigger a docker push:
+# git tag -a $3 -m "$3" 
+# git push origin $3  
 
 set -x
 
 sed -i "s/baseimage/$BASE_IMAGE/g" Dockerfile
 sed -i "s/nodejsversion/$NODEJS_VERSION/g" Dockerfile
-sed -i "s/tag/$TAG/g" examples/puppeteer/docker-compose.yml
 
 echo 'Building docker image...'
 docker-compose up -d
@@ -30,10 +33,9 @@ ls screenshot.png
 
 if [ ! -z "$TRAVIS_TAG" ]; then
   if [[ $BASE_IMAGE == 'ubuntu:16.04' && $DOCKER_VERSION == '17.03.0' && $DOCKER_COMPOSE_VERSION == '1.9.0' ]]; then
-    docker tag $TAG nicos/puppeteer:$TRAVIS_TAG
+    docker tag puppeteer nicos/puppeteer:$TRAVIS_TAG
     docker login -u nicosmaris -p "$DOCKER_PASS"
     docker push nicos/puppeteer:$TRAVIS_TAG
   fi
 fi
-
 
